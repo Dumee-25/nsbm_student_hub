@@ -24,6 +24,10 @@ public class StudentController {
             @RequestParam(defaultValue = "id") String sortBy) {
         return service.getStudents(page, size, sortBy);
     }
+    @PutMapping("/{id}")
+    public Student update(@PathVariable Long id, @RequestBody Student student) {
+        return service.updateStudent(id, student);
+    }
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable Long id) {
